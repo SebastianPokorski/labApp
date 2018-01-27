@@ -1,25 +1,26 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">Lab App</a> 
+      <a class="navbar-brand" 
+         routerLink="/">Lab App</a> 
     </div>
 
   <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
-      <li>
-        <a href="">Zarejestruj pacjenta</a>
+      <li routerLinkActive="active">
+        <a routerLink="/patient" >Zarejestruj pacjenta</a>
       </li>
-      <li>
-        <a href="">Baza badań</a>
+      <li routerLinkActive="active">
+        <a routerLink="/testbase">Baza badań</a>
       </li>
     </ul>
   
     <ul class="nav navbar-nav navbar-right">
-        <li>
-           <a style="cursor: pointer">Zaloguj</a>
+        <li routerLinkActive="active">
+           <a routerLink="/signin">Zaloguj</a>
         </li>
-        <li>
-          <a style="cursor: pointer"> Zarejestruj</a>
+        <li routerLinkActive="active">
+          <a routerLink="/signup">Zarejestruj</a>
         </li>
     </ul>
   </div>

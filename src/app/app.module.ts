@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SingUpComponent } from './sing-up/sing-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { PatientComponent } from './patient/patient.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { TestbaseComponent } from './testbase/testbase.component';
+import { testService } from './utility/test.service';
 
 
 @NgModule({
@@ -13,12 +18,16 @@ import { SignInComponent } from './sign-in/sign-in.component';
     AppComponent,
     HeaderComponent,
     SingUpComponent,
-    SignInComponent
+    SignInComponent,
+    PatientComponent,
+    HomeComponent,
+    TestbaseComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [testService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

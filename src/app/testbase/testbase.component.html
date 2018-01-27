@@ -1,0 +1,7 @@
+  
+ 
+<h2 *ngFor="let testEl of tests">
+      <h1>{{ testEl.name }}</h1>
+      <p>Koszt badania wynosi {{ testEl.prize | currency: "PLN " }} </p>
+      <p>Czas oczekiwania na wynik wynosi {{ testEl.daysWait }} dni. </p>
+</h2>

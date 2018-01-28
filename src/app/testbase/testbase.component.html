@@ -1,7 +1,26 @@
-  
- 
-<h2 *ngFor="let testEl of tests">
-      <h1>{{ testEl.name }}</h1>
+<h1>Dodaj nowe badanie do bazy:</h1>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+     <div>
+      <label form="name">Nazwa testu</label>
+      <input type="text" id="name" name="name" required ngModel>
+      <label for="prize">Koszt badania</label>
+      <input type="number"  id="prize" name="prize" required ngModel>
+      <label for="daysWait">Czas oczekiwania na wynik</label>
+      <input type="number"  id="daysWait" name="daysWait" required ngModel>
+      <button 
+		  class="btn btn-success" 
+		  type="submit"
+		  [disabled] = "!f.valid"  >DODAJ</button> 
+      </div>     
+</form>
+ <hr>
+
+<h2 *ngFor="let testEl of tests, let i = index">
+	<h1>{{ i+1 }}</h1>  
+	<h1>{{ testEl.name }}</h1>
       <p>Koszt badania wynosi {{ testEl.prize | currency: "PLN " }} </p>
       <p>Czas oczekiwania na wynik wynosi {{ testEl.daysWait }} dni. </p>
+	  <button
+		  class="btn btn-primary"
+		  (click)="onDelete()" >usuń badanie z bazy</button>
 </h2>

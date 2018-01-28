@@ -25,6 +25,4 @@ export class testService {
     getTests() {
         return this.tests.slice();
     }
-
 }
-

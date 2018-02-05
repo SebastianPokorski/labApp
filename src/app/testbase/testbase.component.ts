@@ -11,8 +11,8 @@ import { NgForm } from '@angular/forms';
 export class TestbaseComponent implements OnInit {
 
   @ViewChild('f') addTestForm: NgForm;
-  testindex: number;
   tests: Test[];
+  index: number;
 
   constructor(private testservice: testService) {
   }
@@ -21,13 +21,13 @@ export class TestbaseComponent implements OnInit {
     const value = form.value;
     const newTest = new Test(value.name, value.prize, value.daysWait);
     this.tests.push(newTest);
-    console.log(this.tests);
+    console.log(form);
+    form.resetForm();
   }
 
-  // onDelete() {
-  //   this.tests.splice(1, 1);
-  //   console.log('dzila');
-  // }
+  onDelete(index: number) {
+    this.tests.splice(index, 1);
+  }
 
   ngOnInit() {
     this.tests = this.testservice.getTests();

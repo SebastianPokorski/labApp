@@ -1,26 +1,40 @@
-<h1>Dodaj nowe badanie do bazy:</h1>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
-     <div>
-      <label form="name">Nazwa testu</label>
-      <input type="text" id="name" name="name" required ngModel>
-      <label for="prize">Koszt badania</label>
-      <input type="number"  id="prize" name="prize" required ngModel>
-      <label for="daysWait">Czas oczekiwania na wynik</label>
-      <input type="number"  id="daysWait" name="daysWait" required ngModel>
+<h1>Dodaj nowe badanie do bazy</h1>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-inline"> 
+    <div class="form-group">
+		<label form="name">Nazwa testu</label>
+		<input type="text" id="name" name="name" placeholder="nazwa testu" required ngModel>
+	</div>
+    <div class="form-group">
+		<label for="prize">Koszt badania (PLN)</label>
+	  	<input type="number"  id="prize" name="prize" placeholder="koszt test"required ngModel>
+	</div>
+	<div class="form-group">
+      	<label for="daysWait">Czas oczekiwania na wynik (dni)</label>
+	  	<input type="number"  id="daysWait" name="daysWait" placeholder=" czas oczekiwania" required ngModel>
+	</div>
+	<div>
       <button 
-		  class="btn btn-success" 
+		  class="btn btn-info" 
 		  type="submit"
-		  [disabled] = "!f.valid"  >DODAJ</button> 
-      </div>     
+		  [disabled] = "!f.valid" > DODAJ </button> 
+	</div> 
 </form>
  <hr>
 
 <h2 *ngFor="let testEl of tests, let i = index">
-	<h1>{{ i+1 }}</h1>  
-	<h1>{{ testEl.name }}</h1>
-      <p>Koszt badania wynosi {{ testEl.prize | currency: "PLN " }} </p>
-      <p>Czas oczekiwania na wynik wynosi {{ testEl.daysWait }} dni. </p>
-	  <button
-		  class="btn btn-primary"
-		  (click)="onDelete()" >usuń badanie z bazy</button>
+	<div [ngStyle] = "{'background-color': i % 2 === 0 ? '#ADD8E6' : 'Lavender'}"><h4>{{ i+1 }} {{ testEl.name }} </h4>
+      <h5>Koszt badania wynosi
+            <strong>{{ testEl.prize | currency: "PLN " }}</strong>
+      </h5>
+      <h5> Oczekiwanie na wynik wynosi
+            <strong>{{ testEl.daysWait }}</strong>
+            <span [ngStyle]="{'display': testEl.daysWait === 1 ? 'inline' : 'none'}"> dzień </span>
+            <span [ngStyle]="{'display': testEl.daysWait === 1 ? 'none' : 'inline'}"> dni </span>
+            <button 
+                  class="btn btn-info" 
+                  (click)="onDelete(i)"
+                  [ngStyle] = "{'float' : 'right'}">usuń badanie</button>
+      </h5>
+      
+      </div>
 </h2>

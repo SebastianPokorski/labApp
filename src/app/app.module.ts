@@ -13,6 +13,7 @@ import { TestbaseComponent } from './testbase/testbase.component';
 import { testService } from './utility/test.service';
 import { FormsModule } from '@angular/forms';
 
+import { TestFilterPipe } from './utility/testFilter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     SignInComponent,
     PatientComponent,
     HomeComponent,
-    TestbaseComponent
+    TestbaseComponent,
+    TestFilterPipe
   ],
   imports: [
     BrowserModule,

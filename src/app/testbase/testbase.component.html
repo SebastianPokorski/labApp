@@ -21,20 +21,30 @@
 </form>
  <hr>
 
-<h2 *ngFor="let testEl of tests, let i = index">
-	<div [ngStyle] = "{'background-color': i % 2 === 0 ? '#ADD8E6' : 'Lavender'}"><h4>{{ i+1 }} {{ testEl.name }} </h4>
-      <h5>Koszt badania wynosi
-            <strong>{{ testEl.prize | currency: "PLN " }}</strong>
-      </h5>
-      <h5> Oczekiwanie na wynik wynosi
-            <strong>{{ testEl.daysWait }}</strong>
-            <span [ngStyle]="{'display': testEl.daysWait === 1 ? 'inline' : 'none'}"> dzień </span>
-            <span [ngStyle]="{'display': testEl.daysWait === 1 ? 'none' : 'inline'}"> dni </span>
-            <button 
-                  class="btn btn-info" 
-                  (click)="onDelete(i)"
-                  [ngStyle] = "{'float' : 'right'}">usuń badanie</button>
-      </h5>
-      
-      </div>
-</h2>
+<div class="container">
+	<div class="col-lg-5">
+		<div>
+			<label>Szukaj badania</label>
+			<input type="text" placeholder="wpisz nazwę testu" [(ngModel)] = filterStatus>
+		</div>
+		<h2 
+		*ngFor="let testEl of tests | testFilter:filterStatus, let i = index" >
+			<div [ngStyle]="{'background-color': i % 2 === 0 ? '#ADD8E6' : 'Lavender'}">
+				<h4>{{ i+1 }} {{ testEl.name }} </h4>
+				<h5>Koszt badania wynosi
+					<strong>{{ testEl.prize | currency: "PLN " }}</strong>
+				</h5>
+				<h5> Oczekiwanie na wynik wynosi
+					<strong>{{ testEl.daysWait }}</strong>
+					<span [ngStyle]="{'display': testEl.daysWait === 1 ? 'inline' : 'none'}"> dzień </span>
+					<span [ngStyle]="{'display': testEl.daysWait === 1 ? 'none' : 'inline'}"> dni </span>
+					<button class="btn btn-info" (click)="onDelete(i)" [ngStyle]="{'float' : 'right'}">usuń badanie</button>
+				</h5>
+			</div>
+		</h2>
+	</div>
+
+	<div class="col-lg-5">
+	  
+	</div>
+</div>

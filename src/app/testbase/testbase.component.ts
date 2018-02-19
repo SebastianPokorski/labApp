@@ -1,6 +1,6 @@
 import { testService } from './../utility/test.service';
 import { Test } from './../utility/test.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,7 @@ export class TestbaseComponent implements OnInit {
   @ViewChild('f') addTestForm: NgForm;
   tests: Test[];
   index: number;
+  filterStatus = '';
 
   constructor(private testservice: testService) {
   }

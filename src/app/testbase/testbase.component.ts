@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './testbase.component.html',
   styleUrls: ['./testbase.component.css']
 })
+
 export class TestbaseComponent implements OnInit {
 
   @ViewChild('f') addTestForm: NgForm;
@@ -22,7 +23,6 @@ export class TestbaseComponent implements OnInit {
     const value = form.value;
     const newTest = new Test(value.name, value.prize, value.daysWait);
     this.tests.push(newTest);
-    console.log(form);
     form.resetForm();
   }
 

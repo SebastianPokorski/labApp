@@ -19,7 +19,8 @@
 		  [disabled] = "!f.valid" > DODAJ </button> 
 	</div> 
 </form>
- <hr>
+
+<hr>
 
 <div class="container">
 	<div class="col-lg-5">
@@ -39,6 +40,7 @@
 					<span [ngStyle]="{'display': testEl.daysWait === 1 ? 'inline' : 'none'}"> dzień </span>
 					<span [ngStyle]="{'display': testEl.daysWait === 1 ? 'none' : 'inline'}"> dni </span>
 					<button class="btn btn-info" (click)="onDelete(i)" [ngStyle]="{'float' : 'right'}">usuń badanie</button>
+					<button class="btn btn-success" (click)="onAdd(i)" [ngStyle]="{'float' : 'right'}">dodaj do koszyka</button>
 				</h5>
 			</div>
 		</h2>
